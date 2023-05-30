@@ -21,7 +21,6 @@
 <style>
 
 
-
 	
   /* Dark Mode Styles */
   body.dark-mode,
@@ -42,6 +41,13 @@ body.dark-mode .tooltip {
   padding: 10px;
   font-size: 12px;
 }
+
+
+
+ body.dark-mode #search-bar {
+    color: #000; /* Specify the desired text color for dark mode */
+background-color : #999
+  }
 
   body.dark-mode svg .x-label {
     /* Override SVG text color */
@@ -143,6 +149,12 @@ body.dark-mode .toggle-slider {
 
 body.dark-mode input:checked + .toggle-slider:before {
   background-color: #ccc; /* Darker background color for dark mode */
+}
+
+
+circle.highlighted {
+  stroke: #ff00ff;
+  stroke-width: 3px;
 }
 
 
@@ -478,6 +490,15 @@ width: 120px;
 }
 
 
+#search-bar {
+    position: absolute;
+    top: 726px; /* Adjust the desired top position */
+    left: 730px; /* Adjust the desired left position */
+  }
+
+  #search-bar::placeholder {
+    color: #fff; /* Specify the desired color for the placeholder text */
+  }
 </style>
 	
 </head>
@@ -490,12 +511,14 @@ width: 120px;
 
   gtag('config', 'G-PSBMXX80EF');
 </script>
-	
+
 <body>
+	
 	<div class="dark-mode-toggle" onclick="toggleDarkMode()">
     <div class="toggle-icon"></div>
   </div>
 <svg id="scatter-plot"></svg>
+<input type="text" id="search-bar" placeholder="Search player...">
 <script>
   var csvData = `ID,Player,Minutes played,Duels per 90,Duels won %,Successful defensive actions per 90,Defensive duels per 90,Defensive duels won %,Aerial duels per 90,Aerial duels won %,PAdj Sliding tackles,PAdj Interceptions,Fouls per 90,Successful attacking actions per 90,Goals per 90,Non-penalty goals per 90,xG per 90,Head goals per 90,Shots per 90,Shots on target %,Goal conversion %,Assists per 90,Crosses per 90,Accurate crosses %,Dribbles per 90,Successful dribbles %,Offensive duels per 90,Offensive duels won %,Touches in box per 90,Progressive runs per 90,Accelerations per 90,Received passes per 90,Received long passes per 90,Fouls suffered per 90,Passes per 90,Accurate passes %,Forward passes per 90,Accurate forward passes %,Back passes per 90,Short / medium passes per 90,Accurate short / medium passes %,Long passes per 90,Accurate long passes %,Average pass length m,xA per 90,Shot assists per 90,Second assists per 90,Third assists per 90,Smart passes per 90,Accurate smart passes %,Key passes per 90,Passes to final third per 90,Accurate passes to final third %,Passes to penalty area per 90,Accurate passes to penalty area %,Through passes per 90,Accurate through passes %,Deep completions per 90,Deep completed crosses per 90,Progressive passes per 90,Accurate progressive passes %,Direct free kicks per 90,Direct free kicks on target %,Penalties taken,Penalty conversion %
 1,K. Mbappé,4483,18.27,39.01,1.35,1.47,46.58,0.56,46.43,0,0.88,0.52,7.61,0.94,0.84,0.7,0.04,4.24,53.08,22.275,0.24,2.61,31.54,8.67,45.6,14.11,39.97,7.41,4.36,1.55,33.51,1.75,1.26,37.22,82.52,6.93,76.52,9.25,33.71,87.08,0.96,56.25,14.42,0.18,1.26,0.2,0.06,1.45,40.28,0.96,2.43,90.08,3.57,60.11,1.35,37.31,2.49,0.86,3.29,85.98,0.04,50,7,71.429
@@ -1116,7 +1139,7 @@ tooltip.style("position", "absolute")
   .style("border-radius", "5px")
   .style("padding", "10px")
   .style("font-size", "12px");
-
+	
 	document.addEventListener('touchstart', function(event) {
   // Check if the touch event target is the tooltip or one of its child elements
   if (!tooltip.contains(event.target)) {
@@ -1124,9 +1147,27 @@ tooltip.style("position", "absolute")
     tooltip.style.display = 'none';
   }
 });
-	
+
 var names = rows.slice(1).map(function(row) {
   return row.split(',')[1];
+});
+
+var searchBar = document.getElementById("search-bar");
+
+searchBar.addEventListener("input", function() {
+  var searchTerm = searchBar.value.toLowerCase();
+
+  if (searchTerm === '') {
+    resetSearch();
+    return;
+  }
+
+  circles.classed("highlighted", false);
+
+  circles.filter(function(d, i) {
+      return names[i].toLowerCase().includes(searchTerm);
+    })
+    .classed("highlighted", true);
 });
 
 
@@ -1139,7 +1180,7 @@ var circles = svg.selectAll("circle")
   .append("circle")
   .attr("cx", function(d) { return xScale(d[header.indexOf(xMetric)]); })
   .attr("cy", function(d) { return yScale(d[header.indexOf(yMetric)]); })
-  .attr("r", 7)
+  .attr("r", 8)
   .style("fill", "steelblue")
   .on("mouseover", function(d, i) {
     d3.select(this)
@@ -1233,6 +1274,10 @@ yScale.domain(d3.extent(data, function(d) { return d[header.indexOf(yMetric)]; }
 }
 
 
+function resetSearch() {
+  searchBar.value = '';
+  circles.classed("highlighted", false);
+}
 
 
 </script>
