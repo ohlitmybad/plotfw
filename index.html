@@ -1,25 +1,101 @@
 
 
+
 <!DOCTYPE html>
 
 <html>
 <head>
-	
 
-	
-	<link rel="shortcut icon" type="image/x-icon" href="https://datamb.football/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=0.36, user-scalable=no">
+		<link rel="shortcut icon" type="image/x-icon" href="https://datamb.football/favicon.ico">
 	<meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@DataMB_">
     <meta name="twitter:title" content="DataMB | Plot Wingers">
-    <meta name="twitter:description" content="Generate scatter plots of wingers">
+    <meta name="twitter:description" content="Generate scatter plots of wingers and attacking midfielders">
     <meta name="twitter:image" content="https://i.imgur.com/p43wTxg.png">
     <meta property="og:image" content="https://i.imgur.com/p43wTxg.png">
 	<title translate="no">DataMB | Plot Wingers</title>
-	<script src="https://d3js.org/d3.v5.min.js"></script>
-	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 
 <style>
+
+
+
+
+.header {
+  font-family: system-ui;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+background: #ececec;
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.header .logo .img2 {
+  width: 40px;
+  height: 40px;
+  opacity: 0.84;
+  position: static; /* Reset the 'position' property if needed */
+  top: auto; /* Reset the 'top' property if needed */
+  z-index: auto; /* Reset the 'z-index' property if needed */
+  left: auto; /* Reset the 'left' property if needed */
+  pointer-events: auto; /* Reset the 'pointer-events' property if needed */
+}
+
+body.dark-mode header .logo-text a {
+  color: #444444;
+}
+
+.header .logo-text {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.header .navigation {
+  display: center;
+  align-items: center;
+      word-spacing: 1.3em; /* Adjust the spacing as needed */	
+
+}
+
+.header .button {
+  margin: 0 10px;
+  padding: 0px 20px;
+  color: #444444;
+  text-decoration: none;
+  border-radius: 0px;
+font-size: 18px;
+}
+
+header a {
+      color: #444444;
+      text-decoration: none;
+
+    }
+
+.header .twitter-link svg {
+  width: 25px;
+  height: 24px;
+  fill: #444444;
+}
+
+ body.dark-mode {
+    background-color: #0F0F0E;
+  }
+
 
 
 	
@@ -91,36 +167,266 @@ body.dark-mode button:hover {
   color: initial;
 }
 
-body.dark-mode .button-8 {
-  /* Override button background color */
-  background-color: #13293d; /* Dark blue color */
-  color: #f2f2f2; /* Off-white color */
-}
 
-body.dark-mode .button-8:hover,
-body.dark-mode .button-8:focus {
-  /* Override button hover and focus state */
-  background-color: #3a6ea5; /* Darker blue color */
-  color: #f2f2f2; /* Off-white color */
-}
+	
 
-body.dark-mode .button-8:hover,
-body.dark-mode .button-8:focus {
-  /* Override button hover and focus state */
-  background-color: #3a6ea5; /* Darker blue color */
-  color: #f2f2f2; /* Off-white color */
+.icon2::before {
+  content: "\f118";
+  font-family: "Ionicons"; /* Replace with the appropriate font */
+font-size: 22px;
 }
 
 
- .dark-mode-toggle {
+.icon3::before {
+  content: "\f448";
+  font-family: "Ionicons"; /* Replace with the appropriate font */
+font-size: 22px;
+}
+
+
+body.dark-mode #searchInput1 {
+    color: #000; /* Specify the desired text color for dark mode */
+background-color : #999;
+  }
+	
+ body.dark-mode	  #searchInput1::placeholder {
+    color: #fff; /* Specify the desired color for the placeholder text */
+  }
+
+ body.dark-mode	  #searchButton1 {
+    color: #fff !important; /* Specify the desired color for the placeholder text */
+background-color : #333333;
+  }
+
+.button-1 {
+  align-items: center;
+height: 0px;
+  background-color: #F9F9F9;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .1s,-webkit-box-shadow .1s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  position: absolute;
+  top: 100px;
+  left: 255px;
+width: 85px; 
+ 
+  touch-action: manipulation;
+}
+
+.button-1:hover {
+   box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
+}
+
+.button-2 {
+  align-items: center;
+  background-color: #F9F9F9;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .1s,-webkit-box-shadow .1s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  position: absolute;
+  top: 100px;
+  left: 355px;
+height: 20px;
+width: 85px; 
+ 
+  touch-action: manipulation;
+}
+
+.button-2:hover {
+   box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
+}
+
+.button-3 {
+  align-items: center;
+height: 20px;
+  background-color: #F9F9F9;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .1s,-webkit-box-shadow .1s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  position: absolute;
+  top: 100px;
+  left: 455px;
+width: 85px; 
+ 
+  touch-action: manipulation;
+}
+
+.button-3:hover {
+   box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
+}
+
+.button-4 {
+  align-items: center;
+  background-color: #F9F9F9;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .1s,-webkit-box-shadow .1s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  position: absolute;
+  top: 100px;
+  left: 555px;
+height: 20px;
+width: 85px; 
+ 
+  touch-action: manipulation;
+}
+
+.button-4:hover {
+   box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
+}
+
+
+
+.button-5 {
+  align-items: center;
+height: 20px;
+  background-color: #F9F9F9;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .1s,-webkit-box-shadow .1s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  position: absolute;
+  top: 100px;
+  left: 655px;
+width: 85px; 
+ 
+  touch-action: manipulation;
+}
+
+.button-5:hover {
+   box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
+}
+
+.button-6 {
+  align-items: center;
+  background-color: #F9F9F9;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .1s,-webkit-box-shadow .1s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  position: absolute;
+  top: 100px;
+  left: 755px;
+height: 20px;
+width: 85px; 
+ 
+  touch-action: manipulation;
+}
+
+.dark-mode-toggle {
     position: absolute;
-    top: 716.5px;
-    left: 684.5px;
+    top: 96.9px;
+left: 870px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background-color: #e0e0de;
     border-radius: 50%;
     cursor: pointer;
@@ -147,6 +453,13 @@ body.dark-mode .dark-mode-toggle .toggle-icon::before {
 }
 
 
+.button-6:hover {
+   box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
+}
+
+
+
+
 
 body.dark-mode .toggle-slider {
   background-color: #2B2C2E; /* Darker background color for dark mode */
@@ -168,313 +481,30 @@ circle {
   cursor: pointer;
 }
 
-.button-2 {
-  align-items: center;
-  background-color: #F9F9F9;
-  border-radius: 25px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  color: #121212;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-family: Inter,sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .1s,-webkit-box-shadow .1s;
-  white-space: nowrap;
-  border: 0;
-  user-select: none;
-  position: absolute;
-  top: 135px;
-  left: 1150px;
-width: 120px; 
- 
-  touch-action: manipulation;
-}
-
-.button-2:hover {
-   box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
-}
-
-.button-3 {
-  align-items: center;
-  background-color: #F9F9F9;
-  border-radius: 25px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  color: #121212;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-family: Inter,sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .1s,-webkit-box-shadow .1s;
-  white-space: nowrap;
-  border: 0;
-  user-select: none;
-  position: absolute;
-  top: 200px;
-  left: 1150px;
-width: 120px;
- 
-  touch-action: manipulation;
-}
-
-.button-3:hover {
-   box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
-}
-
-.button-4 {
-  align-items: center;
-  background-color: #F9F9F9;
-  border-radius: 25px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  color: #121212;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-family: Inter,sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .1s,-webkit-box-shadow .1s;
-  white-space: nowrap;
-  border: 0;
-  user-select: none;
-  position: absolute;
-  top: 265px;
-  left: 1150px;
-width: 120px;
- 
-  touch-action: manipulation;
-}
-
-.button-4:hover {
-   box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
-}
-
-.button-5 {
-  align-items: center;
-  background-color: #F9F9F9;
-  border-radius: 25px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  color: #121212;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-family: Inter,sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .1s,-webkit-box-shadow .1s;
-  white-space: nowrap;
-  border: 0;
-  user-select: none;
-  position: absolute;
-  top: 330px;
-  left: 1150px;
-width: 120px; 
- 
-  touch-action: manipulation;
-}
-
-.button-5:hover {
-   box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
-}
-
-
-.button-6 {
-  align-items: center;
-  background-color: #F9F9F9;
-  border-radius: 25px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  color: #121212;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-family: Inter,sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .1s,-webkit-box-shadow .1s;
-  white-space: nowrap;
-  border: 0;
-  user-select: none;
-  position: absolute;
-  top: 395px;
-  left: 1150px;
-width: 120px;
- 
-  touch-action: manipulation;
-}
-
-.button-6:hover {
-  box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
-}
-
-
-.button-7 {
-  align-items: center;
-  background-color: #F9F9F9;
-  border-radius: 25px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  color: #121212;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-family: Inter,sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .1s,-webkit-box-shadow .1s;
-  white-space: nowrap;
-  border: 0;
-  user-select: none;
-  position: absolute;
-  top: 460px;
-  left: 1150px;
-width: 120px;
- 
-  touch-action: manipulation;
-}
-
-.button-7:hover {
-  box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
-}
-
-.button-9 {
-  align-items: center;
-  background-color: #F9F9F9;
-  border-radius: 25px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  color: #121212;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-family: Inter,sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .1s,-webkit-box-shadow .1s;
-  white-space: nowrap;
-  border: 0;
-  user-select: none;
-  position: absolute;
-  top: 525px;
-  left: 1150px;
-width: 120px;
- 
-  touch-action: manipulation;
-}
-
-.button-9:hover {
-  box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
-}
-
-.button-8 {
-  align-items: center;
-  background-color: #1DA1F2;
-  border-radius: 25px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  color: white;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-family: Inter,sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .1s,-webkit-box-shadow .1s;
-  white-space: nowrap;
-  border: 0;
-  user-select: none;
-  position: absolute;
-  top: 590px;
-  left: 1150px;
- width: 120px; 
-  touch-action: manipulation;
-}
-
-.button-8:hover {
-  box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
-}
-
 
 #search-bar {
     position: absolute;
-    top: 726px; /* Adjust the desired top position */
-    left: 760px; /* Adjust the desired left position */
+    top: 1065px; /* Adjust the desired top position */
+    left: 80px; /* Adjust the desired left position */
   }
+
+		 #select-league {
+    position: absolute;
+    top: 1065px;
+    left: 250px;	  
+  }	
 
 
 .toggle-button {
   background-color: #f5f5f5;
   color: #333;
-  padding: 7px 14px;
+  padding: 6px 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
 position: absolute;
-top: 717px;
-left: 611px;
+top: 1057px;
+left: 408px;
 }
 
 
@@ -489,37 +519,18 @@ font-size: 22px;
      img {
             width: 200px;
 position: absolute;
-top: 235px;
+top: 635px;
 pointer-events: none;
 z-index: -1; 
+
 left: 475px;
 opacity: .055; 	
 	}
 
 
-  #bottom-container {
-    position: absolute;
-    top: 890px;
-  }	
-	
-
-  #bottom-container2 {
-    position: absolute;
-    top: 1340px;
-  }	     
-	
-		 #bottom-container3 {
-    position: absolute;
-    top: 890px;
-    right: 0px;	  
-  }	
 
 
-		 #select-league {
-    position: absolute;
-    top: 726px;
-    left: 922px;	  
-  }	
+
 
 
 .icon4::before {
@@ -534,103 +545,37 @@ font-size: 22px;
 font-size: 22px;
 }
 
-
-.button-1 {
-  align-items: center;
-  background-color: #e0e0de;
-  border-radius: 25px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  color: #121212;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-family: Inter,sans-serif;
-  font-size: 1.82rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 0.1rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .1s,-webkit-box-shadow .1s;
-  white-space: nowrap;
-  border: 0;
-  user-select: none;
-  position: absolute;
-  top: 80px;
-  left: 1150px;
-  width: 50px; 
- 
-  touch-action: manipulation;
-}
-
-.button-1:hover {
-  box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
-}
-
-.button-12 {
-  align-items: center;
-  background-color: #e0e0de;
-  border-radius: 25px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  color: #121212;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-family: Inter,sans-serif;
-  font-size: 1.82rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 0.1rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .1s,-webkit-box-shadow .1s;
-  white-space: nowrap;
-  border: 0;
-  user-select: none;
-  position: absolute;
-  top: 80px;
-  left: 1218px;
-  width: 50px; 
- 
-  touch-action: manipulation;
-}
-
-.button-12:hover {
-  box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 3px;
-}
+  body, html {
+            margin: 0;
+            padding: 0;
+        }
 
 	     
 </style>
+<header class="header">
+   <div class="logo">
+    <a href="http://datamb.football">
+      <img src="https://i.imgur.com/UurMbGS.png" alt="Football player statistics plot comparison" class="img2">
+    </a>
+    <div class="logo-text">
+      <a href="http://datamb.football">Plots</a>
+    </div>
+  </div>
+  <nav class="navigation">
+    <a href="http://datamb.football/radars/" class="button">Radars</a>
+    <a href="http://datamb.football/search/" class="button">Search</a>
+    <a href="http://datamb.football/glossary/" class="button">Guide</a>
+  </nav>
+  <a href="https://twitter.com/datamb_" target="_blank" class="twitter-link">
+    <svg width="25" height="24" fill="#bcbcbc" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.315 3.95c-.882.432-1.747.608-2.647.873-.99-1.116-2.456-1.177-3.865-.65-1.409.528-2.332 1.818-2.312 3.298v.882c-2.863.073-5.413-1.231-7.058-3.53 0 0-3.69 6.559 3.53 9.706-1.653 1.1-3.3 1.843-5.295 1.765 2.919 1.59 6.1 2.138 8.854 1.339 3.158-.918 5.754-3.285 6.75-6.832.298-1.078.445-2.192.439-3.311-.002-.22 1.332-2.446 1.604-3.54Z" />
+    </svg>
+  </a>
+</header>
 
-
-	<script type="text/javascript">
-  window._taboola = window._taboola || [];
-  _taboola.push({article:'auto'});
-  !function (e, f, u, i) {
-    if (!document.getElementById(i)){
-      e.async = 1;
-      e.src = u;
-      e.id = i;
-      f.parentNode.insertBefore(e, f);
-    }
-  }(document.createElement('script'),
-  document.getElementsByTagName('script')[0],
-  '//cdn.taboola.com/libtrc/datamb-pub-pub/loader.js',
-  'tb_loader_script');
-  if(window.performance && typeof window.performance.mark == 'function')
-    {window.performance.mark('tbl_ic');}
-</script>
-	
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7677714701428206"
      crossorigin="anonymous"></script>
+	
 </head>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBMXX80EF"></script>
@@ -644,13 +589,28 @@ font-size: 22px;
 
 <body>
 	
+
+<a href="https://datamb.football/plotgk/" target="_self" rel="noopener noreferrer">
+  <button class="button-1" role="button">GK</button>
+<a href="https://datamb.football/plotcb/" target="_self" rel="noopener noreferrer">
+  <button class="button-2" role="button">CB</button>
+<a href="https://datamb.football/plotfb/" target="_self" rel="noopener noreferrer">
+  <button class="button-3" role="button">FB</button>
+<a href="https://datamb.football/plotcm/" target="_self" rel="noopener noreferrer">
+  <button class="button-4" role="button">CM</button>
+<a href="https://datamb.football/plotst/" target="_self" rel="noopener noreferrer">
+  <button class="button-5" role="button">ST</button>
+<a href="https://datamb.football/plotteam/" target="_self" rel="noopener noreferrer">
+  <button class="button-6" role="button">Teams</button>
+</a>
 	
-	 <img src="https://i.imgur.com/UurMbGS.png" alt="Logo">
+	 <img src="https://i.imgur.com/UurMbGS.png" alt="Football data visualization">
 
 	
 	<div class="dark-mode-toggle" onclick="toggleDarkMode()">
     <div class="toggle-icon"></div>
   </div>
+
 <svg id="scatter-plot"></svg>
  <select id="select-league" onchange="updateChart()">
     <option value="all">Top 7 Leagues</option>
@@ -670,29 +630,6 @@ var _0x335c03=_0x1960;function _0x1960(_0x21b786,_0xf71660){var _0x53d011=_0x53d
 
 </script>
 
-
-
-<a href="#" onclick="location.reload(); return false;" rel="noopener noreferrer">
-  <button class="button-1" role="button"><div class="icon4"></div></button>
-<a href="https://datamb.football/" target="_self" rel="noopener noreferrer">
-  <button class="button-12" role="button"><div class="icon3"></div></button>
-<a href="https://datamb.football/plotgk/" target="_self" rel="noopener noreferrer">
-  <button class="button-2" role="button">Goalkeepers</button>
-<a href="https://datamb.football/plotcb/" target="_self" rel="noopener noreferrer">
-  <button class="button-3" role="button">Centrebacks</button>
-<a href="https://datamb.football/plotfb/" target="_self" rel="noopener noreferrer">
-  <button class="button-4" role="button">Fullbacks</button>
-<a href="https://datamb.football/plotcm/" target="_self" rel="noopener noreferrer">
-  <button class="button-5" role="button">Midfielders</button>
-<a href="https://datamb.football/plotst/" target="_self" rel="noopener noreferrer">
-  <button class="button-6" role="button">Strikers</button>
-<a href="https://datamb.football/plotteam/" target="_self" rel="noopener noreferrer">
-  <button class="button-7" role="button">Teams</button>
-	<a href="https://datamb.football/radars/" target="_self" rel="noopener noreferrer">
-  <button class="button-9" role="button">Radars</button>
-<a href="https://twitter.com/DataMB_" target="_self" rel="noopener noreferrer">
-  <button class="button-8" role="button">@DataMB_</button>
-</a>
 <script>
 
     // Function to toggle dark mode
@@ -716,25 +653,12 @@ var _0x335c03=_0x1960;function _0x1960(_0x21b786,_0xf71660){var _0x53d011=_0x53d
   </script>
 		
 
+		
 <br><br><br>
 		
-	<div id="taboola-below-article-thumbnails"></div>
-<script type="text/javascript">
-  window._taboola = window._taboola || [];
-  _taboola.push({
-    mode: 'alternating-thumbnails-a',
-    container: 'taboola-below-article-thumbnails',
-    placement: 'Below Article Thumbnails',
-    target_type: 'mix'
-  });
-</script>	
+<br><br><br>
+		
 
-	<script type="text/javascript">
-  window._taboola = window._taboola || [];
-  _taboola.push({flush: true});
-</script>
-			
-	
 
 </body>
 </html>
